@@ -1,0 +1,11 @@
+{
+  "name": "Love Link",
+  "short_name": "Love Link",
+  "description": "Your private couple space 💕",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdf2f4",
+  "theme_color": "#e11d48",
+  "orientation": "portrait",
+  "icons": [{ "src": "/heart.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
