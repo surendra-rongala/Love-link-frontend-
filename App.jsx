@@ -1,21 +1,21 @@
 import { useState } from "react"
+import { sendMessage } from "./services/api"
 
 export default function App() {
   const [msg, setMsg] = useState("")
 
-  const sendMessage = async () => {
-    await fetch("https://love-link-main.onrender.com//notify-message", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
+  const handleSend = async () => {
+    try {
+      await sendMessage({
         senderName: "You",
         text: msg,
         partnerFcmToken: "test"
       })
-    })
-    alert("Sent!")
+      alert("Sent!")
+    } catch (err) {
+      console.error(err)
+      alert("Error sending message")
+    }
   }
 
   return (
@@ -26,7 +26,7 @@ export default function App() {
         onChange={(e) => setMsg(e.target.value)}
         placeholder="Type message"
       />
-      <button onClick={sendMessage}>Send</button>
+      <button onClick={handleSend}>Send</button>
     </div>
   )
-}
+    }
